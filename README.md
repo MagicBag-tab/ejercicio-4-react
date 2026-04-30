@@ -1,16 +1,34 @@
-# ejercicio-4-react# React + Vite
+# Epic: The Musical — Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini-blog sobre el musical **Epic: The Musical**, construido con Vite + React + React Router.
 
-Currently, two official plugins are available:
+## Nivel apuntado: Senior
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Cómo correr el proyecto
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Rutas
+- `/` — Home con listado de sagas
+- `/sagas/:id` — Detalle de una saga y sus canciones
+- `/sagas/:id/songs/:songId` — Detalle de una canción
+- `/favorites` — Mis favoritos
+- `*` — Página 404
 
-## Expanding the ESLint configuration
+## Componentes reutilizables
+- `Card` — Tarjeta con `to`, `title`, `description`, `imageUrl`
+- `Navbar` — Barra de navegación con `title`
+- `Hero` — Carrusel de sagas con `sagas[]`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tecnologías
+- React 19 + Vite
+- React Router DOM v7
+- Context API (favoritos)
+- PropTypes
+- API propia en Go + SQLite deployada en Render
+
+## API
+https://epic-api.onrender.com
