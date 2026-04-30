@@ -20,7 +20,8 @@
 
 ## API Externa
 
-- **Endpoint**: [https://epic-api.onrender.com](https://epic-api.onrender.com)
+- **Endpoint**: [https://epic-api.onrender.com](https://epic-api.onrender.com/sagas)
+- Revisar repositorio para más información: https://github.com/MagicBag-tab/epic-api.git
 
 ## Cómo correr el proyecto
 
