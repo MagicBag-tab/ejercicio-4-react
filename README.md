@@ -2,11 +2,11 @@
 
 > Mini-blog sobre el musical **Epic: The Musical**, construido con Vite + React + React Router.
 
-[![Netlify Deploy](https://img.shields.io/badge/Deploy-Netlify-00AD9F?style=for-the-badge)](https://69f2dee818b56200093b9075--merry-rolypoly-cb9b07.netlify.app/)
+[![Netlify Deploy](https://img.shields.io/badge/Deploy-Netlify-00AD9F?style=for-the-badge)](https://69f2e3f2a17b6cf84cf2329f--merry-rolypoly-cb9b07.netlify.app/)
 
 ## Demo
 
-🔗 **Live URL**: [https://69f2dee818b56200093b9075--merry-rolypoly-cb9b07.netlify.app/](https://69f2dee818b56200093b9075--merry-rolypoly-cb9b07.netlify.app/)
+🔗 **Live URL**: [https://69f2dee818b56200093b9075--merry-rolypoly-cb9b07.netlify.app/](https://69f2e3f2a17b6cf84cf2329f--merry-rolypoly-cb9b07.netlify.app/)
 
 ## Tecnologías
 
