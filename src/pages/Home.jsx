@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Card from '../components/Card'
 import Navbar from '../components/Navbar'
+import Hero from '../components/Hero'
 
 export default function Home() {
   const [sagas, setSagas] = useState([])
@@ -15,12 +16,16 @@ export default function Home() {
       })
   }, [])
 
-  if (loading) return <p>Cargando...</p>
+  if (loading) return <p style={{ padding: 32 }}>Cargando...</p>
 
   return (
     <div>
       <Navbar title="Epic: The Musical" />
-      <h1>Epic: The Musical</h1>
+      <Hero sagas={sagas} />
+      <div className="section-header">
+        <h2>Las Sagas</h2>
+        <p>Nueve sagas que narran el viaje de Odiseo desde Troya hasta Ítaca</p>
+      </div>
       <div className="cards-grid">
         {sagas.map(saga => (
           <Card
