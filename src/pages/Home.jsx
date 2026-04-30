@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar title="Epic: The Musical" />
       <h1>Epic: The Musical</h1>
       <div className="cards-grid">
         {sagas.map(saga => (
