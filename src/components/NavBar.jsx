@@ -5,6 +5,7 @@ export default function Navbar({ title }) {
   return (
     <nav className="navbar">
       <Link to="/">{title}</Link>
+      <Link to="/favorites">Favoritos</Link>
     </nav>
   )
 }

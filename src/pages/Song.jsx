@@ -4,19 +4,27 @@ import { useFavorites } from '../context/FavoritesContext'
 import { ArrowLeft, Heart, Mic } from 'lucide-react'
 import Navbar from '../components/Navbar'
 import Card from '../components/Card'
+import NotFound from './NotFound'
 
 export default function Song() {
   const { id, songId } = useParams()
   const [song, setSong] = useState(null)
   const [saga, setSaga] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
   const { toggleFavorite, isFavorite } = useFavorites()
 
   useEffect(() => {
     Promise.all([
-      fetch(`https://epic-api.onrender.com/songs/${songId}`).then(r => r.json()),
-      fetch(`https://epic-api.onrender.com/sagas/${id}`).then(r => r.json()),
-    ]).then(([songData, sagaData]) => {
+      fetch(`https://epic-api.onrender.com/songs/${songId}`),
+      fetch(`https://epic-api.onrender.com/sagas/${id}`),
+    ]).then(async ([songRes, sagaRes]) => {
+      if (!songRes.ok || !sagaRes.ok) {
+        setNotFound(true)
+        setLoading(false)
+        return
+      }
+      const [songData, sagaData] = await Promise.all([songRes.json(), sagaRes.json()])
       setSong(songData)
       setSaga(sagaData)
       setLoading(false)
@@ -24,6 +32,7 @@ export default function Song() {
   }, [songId, id])
 
   if (loading) return <p style={{ padding: 32 }}>Cargando...</p>
+  if (notFound) return <NotFound />
 
   const fav = isFavorite(song.id, 'song')
   const otrasCanciones = saga?.songs.filter(s => s.id !== song.id)
@@ -44,7 +53,7 @@ export default function Song() {
           </p>
           <button
             className={`fav-btn ${fav ? 'active' : ''}`}
-            onClick={() => toggleFavorite({ id: song.id, type: 'song', title: song.title })}
+            onClick={() => ttoggleFavorite({ id: song.id, type: 'song', title: song.title, image_url: song.image_url })}
           >
             <Heart size={16} fill={fav ? 'currentColor' : 'none'} />
             {fav ? 'En favoritos' : 'Agregar a favoritos'}

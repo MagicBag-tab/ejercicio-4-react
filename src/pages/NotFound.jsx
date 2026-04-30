@@ -1,8 +1,13 @@
+import { Link } from 'react-router-dom'
+
 export default function NotFound() {
   return (
     <div className="not-found">
-      <h1>404 - Not Found</h1>
-      <p>The page you are looking for does not exist.</p>
+      <h1>404</h1>
+      <p>Esta página no existe en el Olimpo 🏛️</p>
+      <Link to="/" style={{ color: 'var(--accent)' }}>
+        Volver al inicio
+      </Link>
     </div>
   )
 }
