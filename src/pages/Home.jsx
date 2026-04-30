@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import Card from '../components/Card'
+import Navbar from '../components/Navbar'
 
 export default function Home() {
   const [sagas, setSagas] = useState([])
@@ -18,14 +19,19 @@ export default function Home() {
 
   return (
     <div>
+      <Navbar />
       <h1>Epic: The Musical</h1>
-      {sagas.map(saga => (
-        <Link to={`/sagas/${saga.id}`} key={saga.id}>
-          <img src={saga.image_url} alt={saga.title} />
-          <h2>{saga.title}</h2>
-          <p>{saga.description}</p>
-        </Link>
-      ))}
+      <div className="cards-grid">
+        {sagas.map(saga => (
+          <Card
+            key={saga.id}
+            to={`/sagas/${saga.id}`}
+            title={saga.title}
+            description={saga.description}
+            imageUrl={saga.image_url}
+          />
+        ))}
+      </div>
     </div>
   )
 }
